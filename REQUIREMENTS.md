@@ -1,6 +1,6 @@
 # Overview
 
-This document contains a list of minimum pre-requisites necessary for taking part to the Codess In The Classroom program.
+This document contains a list of expectations for people taking part to the Codess In The Classroom program.
 
 Accounts:
 
