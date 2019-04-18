@@ -1,4 +1,20 @@
 # Creating Pull Requests
+1. push your changes to remote branch. If your local branch is tracking remote branch, `git push` will do. If you have just local branch, create a remote branch and push you changes with `git push origin HEAD:<remote branch>`.
+2. go to Pull requests tab on repository github page and click on **New pull request** button.
+3. select the source and target branches (usually `master <- <remote branch>`)
+4. fill in a pull request title and description and click create pull request
+5. wait for your reviewer. If there are any issues or improvements, fix the problems locally and push again. The pull request will be automatically updated with any changes in the remote branch. You can also answer to the pull request comments and once the issue is fixed or you have explained your reasoning, you can mark the conversation as finished.
+6. once the pull request is reviewed and approved, merge the pull request
+
+#Reviewing Pull Requests
+1. go to Pull requests tab, select the pull request you want to review from list
+2. go to Files changed tab to see the changes
+3. if you hover over line, a blue **+** button appears. Click the button to add a comment for the line. Once you have written down a comment, click Start a review (if you have already done so, you can click Add review comment). 
+4. once you are happy with your comments you can send them to the submitter by clicking Review changes and then Submit Review. You can also add a general comment for the review there. When you are submitting the review you can decide whether 
+- you request changes based on your comments
+- your comments are general feedback without explicitly approving the changes or requesting additional changes
+- you approve merging the changes proposed in the pull request
+5. click submit review
 
 # Pull Request Reviews
 **Adopt a positive attitude!**
