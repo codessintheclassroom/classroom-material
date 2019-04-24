@@ -19,24 +19,3 @@
     See https://github.com/facebook/create-react-app for more info.
 
 7. Navigate to http://localhost:3000/ to see the running application.
-
-### Adding some UI
-
-1. Run `npm install react-bootstrap @types/react-bootstrap --save` to install the https://react-bootstrap.github.io/ library.
-2. Add the bootstrap css file to your index.html file located in web-application/public/index.html
-
-        <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-        />
-
-3. Use the bootstrap component library to build a basic UI.
-
-    Some useful components to consider:
-    
-    - Grid layout system: https://react-bootstrap.github.io/layout/grid/
-    - Navigation Bar: https://react-bootstrap.github.io/components/navbar/
-    - Cards: https://react-bootstrap.github.io/components/cards/
-    - Card Layouts: https://react-bootstrap.github.io/components/cards/#card-layout
