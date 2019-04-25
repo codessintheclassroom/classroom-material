@@ -1,4 +1,5 @@
 # Creating Pull Requests
+This is a shortened version, for full documentation see [github doc](https://help.github.com/en/articles/creating-a-pull-request).
 1. push your changes to remote branch. If your local branch is tracking remote branch, `git push` will do. If you have just local branch, create a remote branch and push you changes with `git push origin HEAD:<remote branch>`.
 2. go to Pull requests tab on repository github page and click on **New pull request** button.
 3. select the source and target branches (usually `master <- <remote branch>`)
@@ -7,6 +8,7 @@
 6. once the pull request is reviewed and approved, merge the pull request
 
 #Reviewing Pull Requests
+This is a shortened version, for full documentation see [github doc](https://help.github.com/en/articles/reviewing-proposed-changes-in-a-pull-request).
 1. go to Pull requests tab, select the pull request you want to review from list
 2. go to Files changed tab to see the changes
 3. if you hover over line, a blue **+** button appears. Click the button to add a comment for the line. Once you have written down a comment, click Start a review (if you have already done so, you can click Add review comment). 
@@ -18,7 +20,7 @@
 
 # Pull Request Reviews
 **Adopt a positive attitude!**
-This is just as important for reviewers as well as submitters. Code reviews are not the time to prove who is a better programmer, nor is it a time to ventilate any personal grudges. You do not need to get defensive. Go in to it with a positive attitude, the code review is a time when more people are working together to make the code better. As a reviewer you can help other person improve their code and you can learn from other people code as well as keeping up your knowledge about the codebase. As submitter you have the opportunity to truly polish up your code and catch any mistakes without real harm done, because it takes place before merging to master. If a mistake is found or improvement is pointed out, everyone wins, because it means the codebase is going to be better after the review. Note that is is not necessary that the senior reviews the code of junior, usually everybody is expected to participate in the review regardless of seniority.
+This is just as important for reviewers as well as submitters. Code reviews are not the time to prove who is a better programmer, nor is it a time to ventilate any personal grudges. You do not need to get defensive. Go in to it with a positive attitude, the code review is a time when more people are working together to make the code better. As a reviewer you can help other person improve their code and you can learn from other people code as well as keeping up your knowledge about the codebase. As submitter you have the opportunity to truly polish up your code and catch any mistakes without real harm done, because it takes place before merging to master. If a mistake is found or improvement is pointed out, everyone wins, because it means the codebase is going to be better after the review. Note that is is not necessary that the senior reviews the code of junior, usually everybody is expected to participate in the review regardless of seniority. You can read more about the DOs and DON'Ts [here](https://seanh.cc/post/code-review/).
 
 ## Reviewers
 First of all, you have to **understand the change** you’re reviewing. If you don’t understand the change, you can’t positively review the change. If you are unsure what the pull request is about after reading the description/commit messages, you need to ask the author for a better description.
