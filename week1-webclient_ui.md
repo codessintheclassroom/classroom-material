@@ -4,7 +4,7 @@
 
 There are several UI frameworks that can be used to have a good-looking UI with React without
 the need of manually writing style instructions.
-For instance, one can use [Bootstrap][bootstrap], [Material-UI][material-ui] or [Office UI Fabric][office-ui-fabric]. For this project, we suggest using Bootstrap, through its most popular React bindings: [react-boostrap][react-bootstrap].
+For instance, one can use [Bootstrap][bootstrap], [Material-UI][material-ui] or [Office UI Fabric][office-ui-fabric]. For this project, we suggest using Bootstrap, through its most popular React bindings: [react-bootstrap][react-bootstrap].
 
 1. Run `npm install react-bootstrap @types/react-bootstrap` to install the `react-boostrap` library.
 2. Reference the bootstrap css file in the HTML index file located in `public/index.html` as follows.
@@ -16,21 +16,23 @@ For instance, one can use [Bootstrap][bootstrap], [Material-UI][material-ui] or 
             crossorigin="anonymous"
         />
 
-3. Use the Bootstrap component library to build a simple view for all the animals hosted by the shelter. Here are some useful layouts and components to consider:  
+3. Use the Bootstrap [component][react-components] library to build a listing of all the animals hosted by the shelter. Here are some useful layouts and components to consider:  
     - Grid layout system: https://react-bootstrap.github.io/layout/grid/
     - Cards: https://react-bootstrap.github.io/components/cards/
     - Card Layouts: https://react-bootstrap.github.io/components/cards/#card-layout
 
 
-An example of the view is shown in the image below - though, by all means, feel free to come up with anything that looks different.
+You can use the image below as a guide, but feel free to create your own design.
 
 <p align="center"> 
 <img src="https://user-images.githubusercontent.com/1350095/56684256-48f43600-66c7-11e9-9e9b-648d118fb76f.jpg" alt="smaple list view UI" width="400"/>
 </p>
 
- ----
+
 <details>
-<summary><b>Click here to read more hints on how to construct the UI</b></summary><br>
+<summary><b>If you aren't familiar with React components or how to use them to build a UI,
+click here to read more detailed instructions.
+</b></summary><br>
 
 **Adding a PetCard component**  
 To visualise the details of a single pet we create a separate React component. 
@@ -87,11 +89,17 @@ of our main page.
     </Row>
 </Container>
 ```
-Congratulations, at this point you should be able to see a list of pets layed out nicely on your main page.
 
+Congratulations, at this point you should be able to see a list of pets layed out nicely on your main page.
 </details>
 
-When you are done, you should **commit** your work and continue by adding the calls to the backend, as described here **TODO: ADD LINk**.  
+At this point, it might make sense to save the progress you've made to the Git repository.
+You can do this by staging ("adding") the relevant files to the Git index and committing your changes:
+
+    git add -A client/*
+    git commit
+
+When you are done, you can continue by adding the calls to the backend, as described here **TODO: ADD LINk**.  
 
  [bootstrap]: https://getbootstrap.com/
  [react-bootstrap]: https://react-bootstrap.github.io/
@@ -99,3 +107,4 @@ When you are done, you should **commit** your work and continue by adding the ca
  [office-ui-fabric]: https://developer.microsoft.com/en-us/fabric
  [bst-cards]: https://react-bootstrap.github.io/components/cards/
  [bst-grid]: https://react-bootstrap.github.io/layout/grid/
+ [react-components]: https://reactjs.org/docs/components-and-props.html
