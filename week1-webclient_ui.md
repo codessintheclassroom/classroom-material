@@ -91,8 +91,7 @@ Congratulations, at this point you should be able to see a list of pets layed ou
 
 </details>
 
-When you are done, you can continue by adding the calls to the backend, as described here **TODO: ADD LINk**.
-
+When you are done, you should **commit** your work and continue by adding the calls to the backend, as described here **TODO: ADD LINk**.  
 
  [bootstrap]: https://getbootstrap.com/
  [react-bootstrap]: https://react-bootstrap.github.io/
