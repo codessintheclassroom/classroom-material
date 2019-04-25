@@ -7,7 +7,7 @@ This is a shortened version, for full documentation see [github doc](https://hel
 5. wait for your reviewer. If there are any issues or improvements, fix the problems locally and push again. The pull request will be automatically updated with any changes in the remote branch. You can also answer to the pull request comments and once the issue is fixed or you have explained your reasoning, you can mark the conversation as finished.
 6. once the pull request is reviewed and approved, merge the pull request
 
-#Reviewing Pull Requests
+# Reviewing Pull Requests
 This is a shortened version, for full documentation see [github doc](https://help.github.com/en/articles/reviewing-proposed-changes-in-a-pull-request).
 1. go to Pull requests tab, select the pull request you want to review from list
 2. go to Files changed tab to see the changes
