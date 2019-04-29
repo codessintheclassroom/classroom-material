@@ -2,7 +2,11 @@
 
 ## Adding unit tests for your pet component.
 
-At this stage you should already have a pet component created in the src folder. It's valuable to now develop test for this component so that any future changes do not break functionality you have already developed.
+At this stage you should already have a pet component created in the src folder. It's valuable to now develop test for this component so:
+1. The correctness of the current implementation is validated.
+2. That any future changes do not break functionality you have already developed.
+
+Test driven development (TDD) is also popular with some developers. With TDD a developer would write the tests as specifications upfront and only implement enough code to make the tests pass.
 
 ### Step by step instructions for adding unit tests.
 
@@ -57,12 +61,12 @@ This set of instructions are using [jest-dom](https://github.com/testing-library
         });
 
     - The first parameter passed to `describe` should be the name of the component that is being tested.
-    - The first parameter passed to `it` should describe in natuaral language (e.g. English) what expectation you are trying to test.
+    - The first parameter passed to `it` should describe in natural language (e.g. English) what expectation you are trying to test.
     - The second parameters passed to `describe` and `it` are callbacks executed by the testing framework that should contain the actual testing code.
     - The line `const { getByText } = render(<PetCard pet={petMock}/>);` renders the PetCard using the mock data defined in 6 above, and returns a function `getByText` that allows you to check whether certain text values exist in the rendered component.
     - The line `expect(getByText('Fido')).toBeInTheDocument();` defines an expectation that the text `Fido` should be in the rendered component.
 
-8. There are many different ways in which the rendered component and it's parts can be checked for validity.
+8. There are many different ways in which the rendered component and its parts can be checked for validity.
 
     - There are many ways in which sub parts of the component can be discovered in addition to `getByText` used above. See the [dom-testing-library cheatsheet](https://testing-library.com/docs/dom-testing-library/cheatsheet#queries) for a list.
     - There are also many ways in which checks can be done on these discovered sub parts in addition to `toBeInTheDocument` used above. There are checks to do anything from whether an attribute exists on a dom element to whether an element is visible or not. See the [jest-dom documentation](https://www.npmjs.com/package/jest-dom#custom-matchers) for more examples.
@@ -100,9 +104,12 @@ This will print out detailed information about the test that failed including th
 
 ### Best practices when writing tests.
 
-The description that you give your tests should be similar to a specification. A good template to consider is `Code a should do action b in case of c`. The code in the test should of do checks that match the description. Since requirements tend to change over time or even get lost, unit tests can serve as an accurate and up to date specification of the expected behavior of the application. Since they are checked in with the code, they are easier to keep in sync with the code and maintain than purely textual specifications.
+The description that you give your tests should be similar to a specification. A good template to consider is `Code a should do action b in case of c`. The code in the test should do checks that match the description. Since requirements tend to change over time or even get lost, unit tests can serve as an accurate and up to date specification of the expected behavior of the application. Since they are checked in with the code, they are easier to keep in sync with the code and maintain than purely textual specifications.
 
 ### Full sample solution.
+
+<details>
+<summary>Click here to reveal the full sample solution.</summary>
 
     import 'react-testing-library/cleanup-after-each';
     import 'jest-dom/extend-expect';
@@ -140,3 +147,5 @@ The description that you give your tests should be similar to a specification. A
             expect(getByText('Adopt')).toBeInTheDocument();
         });
     });
+
+<details>
