@@ -24,22 +24,29 @@ This set of instructions are using [jest-dom](https://github.com/testing-library
     - the render helper from the react-testing-library which is used to render the component for testing
     - react which is required to render any component.
 
+        ```typescript
             import 'react-testing-library/cleanup-after-each';
             import 'jest-dom/extend-expect';
             import { render } from 'react-testing-library';
 
             import * as React from 'react';
+        ```
 
 4. Add an import statement to import the PetCard component that we are going to test. Make sure that the path references the location of the PetCard.tsx file if your PetCard.test.tsx is not in the same folder as PetCard.tsx.
 
+    ```typescript
         import { PetCard } from './PetCard';
+    ```
 
 5. Add an import statement to import the Pet data model that is passed to the PetCard as a parameter. Again make sure that the path matches the location where the model is located relative to the Petcard.test.tsx file.
 
+    ```typescript
         import { PetV1 } from './model/petV1';
+    ```
 
 6. Add a variable to contain the parameters needed to render a PetCard.
 
+    ```typescript
         const petMock: PetV1 = {
             "id": "225c5957d7f450baec75a67ede427e9",
             "name": "Fido",
@@ -50,15 +57,18 @@ This set of instructions are using [jest-dom](https://github.com/testing-library
             "birthday": "2016-04-15",
             "photos": ["https://upload.wikimedia.org/wikipedia/commons/b/b3/Labrador_on_Quantock_%282307909488%29.jpg"]
         };
+    ```
 
 7. Add `describe` and `it` functions for your first test.
 
+    ```typescript
         describe('PetCard', () => {
             it('should render the given name', () => {
                 const { getByText } = render(<PetCard pet={petMock}/>);
                 expect(getByText('Fido')).toBeInTheDocument();
             });
         });
+    ```
 
     - The first parameter passed to `describe` should be the name of the component that is being tested.
     - The first parameter passed to `it` should describe in natural language (e.g. English) what expectation you are trying to test.
@@ -98,7 +108,9 @@ Test failures are printed out on the console as well, e.g:
 
 To simulate a failure, try changing the unit test described above, so that the text that is expected is `Spot` instead of `Fido`, e.g:
 
+```typescript
     expect(getByText('Spot')).toBeInTheDocument();
+```
 
 This will print out detailed information about the test that failed including the expectation that wasn't met.
 
@@ -110,6 +122,8 @@ The description that you give your tests should be similar to a specification. A
 
 <details>
 <summary>Click here to reveal the full sample solution.</summary>
+
+```typescript
 
     import 'react-testing-library/cleanup-after-each';
     import 'jest-dom/extend-expect';
@@ -147,5 +161,7 @@ The description that you give your tests should be similar to a specification. A
             expect(getByText('Adopt')).toBeInTheDocument();
         });
     });
+
+```
 
 <details>
