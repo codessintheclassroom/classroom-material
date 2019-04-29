@@ -26,9 +26,11 @@ Having that in mind, we will now:
 2. Launch Visual Studio Code and use `File -> Open Folder` and open the folder `front-end`. It will be under the folder we created on the previous sections (Ex: CodessInTheClassroom)  
 3. Open a terminal by clicking on `Terminal -> New Terminal`. 
 4. Create and start a basic typescript based web application. Run the following commands:
-	 `> npx create-react-app web-application --typescript`
-	 `> cd web-application`
-	 `> npm start` 
+	```
+	 > npx create-react-app web-application --typescript
+	 > cd web-application
+	 > npm start
+	```
 	 See [create-react-app on github](https://github.com/facebook/create-react-app)  for more info.
 5. Navigate to http://localhost:3000/ to see the running application.
 
