@@ -4,13 +4,13 @@ This document contains a list of expectations for people taking part to the Code
 
 Accounts:
 
-* You will need a free **GitHub** account. (http://github.com)
+* You will need a free [**GitHub**](http://github.com) account. 
 
-* You will need a free **Microsoft Account** with a free Azure subscription (https://azure.microsoft.com/free/)
+* You will need a free **Microsoft Account** with a [free Azure subscription](https://azure.microsoft.com/free/)
 
 Development tools:
 
-* We will be using **Visual Studio Code** (https://code.visualstudio.com/) as the main IDE for the program.
+* We will be using [**Visual Studio Code**](https://code.visualstudio.com/) as the main IDE for the program.
 
   * You are free to use other tools, but we might not be able to help you during the classroom if you are
     using a tool we don’t know how to use.
@@ -18,7 +18,7 @@ Development tools:
 * We will be using the **git** version control system, so you should be familiar with its basics.
   * Suggested tutorial: https://learngitbranching.js.org/ ("Introduction Sequence")
 
-* A **git** client. For the purposes of this workshop, we suggest [GitHub Desktop](https://desktop.github.com/)
+* A **git** client. For the purposes of this workshop, we suggest [**GitHub Desktop**](https://desktop.github.com/)
 
 Programming languages
 
