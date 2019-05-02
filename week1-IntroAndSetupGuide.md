@@ -44,6 +44,6 @@ We will commit and push this code to our master branch now for two reasons: 1. T
 3. With all the changes committed, the next step is to Push the code: check the steps [on the cheatsheet](git-cheatsheet.md#push).
 4. Now that the code is available at GitHub, let's create a [Pull Request](https://help.github.com/en/articles/about-pull-requests) by following the instructions [here](https://help.github.com/en/articles/creating-a-pull-request#creating-the-pull-request).  
   4.1 Add a few people from the room as your reviewers: At this stage, we will only check if the files in the Pull Request you're reviewing are the same as your files. If all the steps were followed correctly, everyone should have the same generated code, therefore, there's no need for a deeper review.  
-	4.2 Once you get at least two approvals, [merge](https://help.github.com/en/articles/merging-a-pull-request#merging-a-pull-request-on-github) the PullRequest. Select the `Merge pull request`, from the drop-down list (item 3 of the referred documentation).
+	4.2 Once you get at least one approval, [merge](https://help.github.com/en/articles/merging-a-pull-request#merging-a-pull-request-on-github) the PullRequest. Select the `Merge pull request`, from the drop-down list (item 3 of the referred documentation).
 
 
