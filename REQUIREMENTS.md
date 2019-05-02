@@ -18,8 +18,6 @@ Development tools:
 * We will be using the **git** version control system, so you should be familiar with its basics.
   * Suggested tutorial: https://learngitbranching.js.org/ ("Introduction Sequence")
 
-* A **git** client. For the purposes of this workshop, we suggest [**GitHub Desktop**](https://desktop.github.com/)
-
 Programming languages
 
 * Basic familiarity with **JavaScript** is required, because we’ll be developing a simple web front-end
