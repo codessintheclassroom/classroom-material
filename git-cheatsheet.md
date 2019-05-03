@@ -16,6 +16,17 @@ To create a new branch:
 
 1. `git checkout -b <your-branch-name>`
 
+## Change git core text editor
+
+If you don't like to write your commit messages in a console text editor, you have the option to change which editor git opens up by default. To do so, run:
+
+`git config --global core.editor "<your-preferred-editor>"`
+
+For windows, for example, you can run the above command with `"notepad.exe"` as your preferred editor.
+
+If you have changed this before, you might need to provide `--replace-all` to overwrite the configuration.
+
+
 ## Commit
 
 For more info on commits, see [the docs](https://git-scm.com/docs/git-commit) and this useful article on [Saving changes](https://www.atlassian.com/git/tutorials/saving-changes) on git.  
