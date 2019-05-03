@@ -1,6 +1,8 @@
-# Codess in the Classroom - Week 1: The Web Client
+[⏮ Previous step: Setup](./01-setup.md)&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;[⏭ Next step: Connecting the API](./03-connecting-the-api.md)
 
-## Building the Pet Shelter UI
+----
+
+## Step 2: Build a user interface for the animal shelter app
 
 There are several UI frameworks that can be used to have a good-looking UI with React without
 the need of manually writing style instructions.
@@ -34,7 +36,7 @@ You can use the image below as a guide, but feel free to create your own design.
 click here to read more detailed instructions.
 </b></summary><br>
 
-**Adding a PetCard component**  
+### Adding a PetCard component
 To visualise the details of a single pet we create a separate React component. 
 In `src\PetCard.js`, we create a `PetCard` component class, which, in the `render()`
 method, will return a simple set of Bootstrap components that constitute the *identity card* of our furry friend. To do that, you may want to check out the docs of the `Card` component, [here][bst-cards].
@@ -51,13 +53,13 @@ An excerpt of the result may look like this:
 </Card>
 ```
 
-**Creating a grid layout in the main page**  
+### Creating a grid layout in the main page
 In the main page of our application - which is `App.js` - let's add some simple layout components.
 To do so, Bootstrap offers several ready-made components that we can combine to create a grid view of 
 all the pets in the shelter. In particular, you can add to the `render()` method components such as 
 `Container`, `Row` and `Col` - see the [grid docs][bst-grid] of react-boostrap for more information.
     
-**Adding pets to our main page**  
+### Adding pets to our main page
 Since we cannot yet fetch the list of pets from the backend, to test our layout
 we create some data of fake pets, as follows.
 
@@ -99,7 +101,7 @@ You can do this by staging ("adding") the relevant files to the Git index and co
     git add -A client/*
     git commit
 
-When you are done, you can continue by adding the calls to the backend, as described here **TODO: ADD LINk**.  
+When you are done, you can continue by [connecting your interface up to the animal shelter API](./03-connecting-the-api.md).  
 
  [bootstrap]: https://getbootstrap.com/
  [react-bootstrap]: https://react-bootstrap.github.io/
@@ -108,3 +110,7 @@ When you are done, you can continue by adding the calls to the backend, as descr
  [bst-cards]: https://react-bootstrap.github.io/components/cards/
  [bst-grid]: https://react-bootstrap.github.io/layout/grid/
  [react-components]: https://reactjs.org/docs/components-and-props.html
+
+----
+
+[⏮ Previous step: Setup](./01-setup.md)&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;[⏭ Next step: Connecting the API](./03-connecting-the-api.md)

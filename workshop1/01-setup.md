@@ -1,7 +1,12 @@
-# Part 1
+⏮ ~~Previous step~~&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;[⏭ Next step: Building the UI](./02-building-the-ui.md)
+
+----
+
+## Step 1: Get your repository cloned and environment set up
+
 This chapter will get you setup on your repository, and kick start your front end code.
 
-## Setting up
+### Setting up
 
 As a preparation for this session you should have received a repository name (if you don't, let an instructor know), have git and some git client installed ([GitHub Desktop](https://desktop.github.com/) recommended). Also, please make sure you have the [prerequisites for the workshop](../workshop-prerequisites.md).
 
@@ -23,7 +28,7 @@ Having that in mind, we will now:
  2. Install the latest Long Term Support (LTS) version of node js from https://nodejs.org/en/. Currently this is version 10.
    * Avoid non LTS versions, e.g. version 11, since they tend to have bugs.
 
-## Starting the app
+### Starting the app
  This section will give you the steps to generate the base code to start our application.
  We'll start by creating a [React](https://reactjs.org/) app:
 
@@ -54,4 +59,6 @@ We will commit and push this code to our master branch now for two reasons: 1. T
   * Add a few people from the room as your reviewers: At this stage, we will only check if the files in the Pull Request you're reviewing are the same as your files. If all the steps were followed correctly, everyone should have the same generated code, therefore, there's no need for a deeper review.
   * Once you get at least one approval, [merge](https://help.github.com/en/articles/merging-a-pull-request#merging-a-pull-request-on-github) the PullRequest. Select the `Merge pull request`, from the drop-down list (item 3 of the referred documentation).
 
+----
 
+⏮ ~~Previous step~~&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;[⏭ Next step: Building the UI](./02-building-the-ui.md)

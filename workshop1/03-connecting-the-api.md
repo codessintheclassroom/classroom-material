@@ -1,6 +1,8 @@
-# Codess in the Classroom - Week 1: The Web Client
+[⏮ Previous step: Building the UI](./02-building-the-ui.md)&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;[⏭ Next step: Testing your code](./04-testing-your-code.md)
 
-## Calling the backend API
+----
+
+## Step 3: Connect the user interface to the shelter API
 
 In this part of the workshop, we want to connect our frontend application to the backend API in order to retrieve 
 the list of pets available for adoption, and to submit inquiries to adopt them.
@@ -32,7 +34,7 @@ API specifications using a command line tool or simply from the [Swagger Editor]
 <summary><b>If you need some help with the HTTP calls and the parsing logic, 
 click here to read some code snippets.</b></summary><br>
 
-**Retrieving the list of pets from the backend**  
+### Retrieving the list of pets from the backend
 
 ```javascript
     fetch(`https://codess-shelter.azurewebsites.net/api/v1/pets`)
@@ -47,7 +49,7 @@ click here to read some code snippets.</b></summary><br>
       });
 ```
 
-**Submitting the inquiry form**
+### Submitting the inquiry form
 
 ```javascript
    submitInquiry(event: any) {
@@ -78,7 +80,7 @@ click here to read some code snippets.</b></summary><br>
 </details>
 
 When you are done, remember to *save* your work with a `git commit` command, as described in the previous steps.
-After that, you can continue by adding testing logic, as described [here](./03-testing-your-code.md).
+After that, you can continue by adding testing logic, as described [here](./04-testing-your-code.md).
 
 
  [api-spec]: https://github.com/codessintheclassroom/api-reference-solution/blob/master/oas3.yaml
@@ -89,3 +91,7 @@ After that, you can continue by adding testing logic, as described [here](./03-t
  [react-bst-modal]: https://react-bootstrap.github.io/components/modal/
  [conditional-rend]: https://reactjs.org/docs/conditional-rendering.html#inline-if-else-with-conditional-operator
  [swagger]: https://editor.swagger.io/
+
+----
+
+[⏮ Previous step: Building the UI](./02-building-the-ui.md)&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;[⏭ Next step: Testing your code](./04-testing-your-code.md)

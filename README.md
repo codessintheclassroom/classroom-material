@@ -49,7 +49,7 @@ adoption center. In doing this, you'll learn:
 Please review the list of [prerequisites for this
 workshop](./workshop-prerequisites.md) before you join us on the day.
 
-_If you're ready, go to the [course notes for Workshop 1](./workshop1/00-intro.md)._
+_If you're ready, go to the [course notes for Workshop 1](./workshop1/00-index.md)._
 
 ### Workshop 2: APIs and back-end web development
 

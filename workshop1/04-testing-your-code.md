@@ -1,6 +1,8 @@
-# Codess in the Classroom - Week 1: The Web Client
+[⏮ Previous step: Connecting the API](./03-connecting-the-api.md)&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;[⏭ Next step: Submitting a pull request](./05-submitting-a-pull-request.md)
 
-## Adding unit tests for your pet component.
+----
+
+## Step 4: Learn how to test your code
 
 At this stage you should already have a pet component created in the src folder. It's valuable to now develop test for this component so:
 1. The correctness of the current implementation is validated.
@@ -164,4 +166,8 @@ The description that you give your tests should be similar to a specification. A
 
 ```
 
-<details>
+</details>
+
+----
+
+[⏮ Previous step: Connecting the API](./03-connecting-the-api.md)&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;[⏭ Next step: Submitting a pull request](./05-submitting-a-pull-request.md)
