@@ -4,32 +4,56 @@
 
 ## Step 2: Build a user interface for the animal shelter app
 
-There are several UI frameworks that can be used to have a good-looking UI with React without
-the need of manually writing style instructions.
-For instance, one can use [Bootstrap][bootstrap], [Material-UI][material-ui] or [Office UI Fabric][office-ui-fabric]. For this project, we suggest using Bootstrap, through its most popular React bindings: [react-bootstrap][react-bootstrap].
+In this step, we'll use some popular libraries to help us create a user interface for our app.
 
-1. Run `npm install react-bootstrap @types/react-bootstrap` to install the `react-boostrap` library.
-2. Reference the bootstrap css file in the HTML index file located in `public/index.html` as follows.
+### Context
 
-        <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-        />
+There are several UI frameworks that we can use to make our life easier.
+These frameworks will help us to create a good-looking UI for our React app
+without needing to write our own stylesheets.
 
-3. Use the Bootstrap [component][react-components] library to build a listing of all the animals hosted by the shelter. Here are some useful layouts and components to consider:  
-    - Grid layout system: https://react-bootstrap.github.io/layout/grid/
-    - Cards: https://react-bootstrap.github.io/components/cards/
-    - Card Layouts: https://react-bootstrap.github.io/components/cards/#card-layout
+Some examples of these UI frameworks are: [Bootstrap], [Material-UI] or
+[Office UI Fabric].
 
+For this project, we suggest using Bootstrap, through its most popular React
+bindings: [`react-bootstrap`].
 
-You can use the image below as a guide, but feel free to create your own design.
+### Install `react-bootstrap`
 
-<p align="center"> 
+In a terminal (reminder: you can use `Terminal → New Terminal` from within VS Code):
+
+1. To install the `react-bootstrap` library:
+
+       npm install react-bootstrap @types/react-bootstrap
+
+2. `react-bootstrap` only contains the UI components for React, but doesn't
+   include any stylesheets. We need to add a reference to the Bootstrap CSS into
+   the `<head>` section of your application's `index.html` (you'll find it in
+   `public/index.html`):
+
+       <link
+           rel="stylesheet"
+           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+           crossorigin="anonymous"
+       />
+
+### Use the components from `react-bootstrap` to build a list view
+
+Use the Bootstrap [component library][react-components] to build a listing of
+all the animals hosted by the shelter. Here are some useful layouts and
+components to consider:
+
+- [Grid layout system](https://react-bootstrap.github.io/layout/grid/),
+- [Cards](https://react-bootstrap.github.io/components/cards/),
+- [Card layouts](https://react-bootstrap.github.io/components/cards/#card-layout)
+
+If you're already familiar with React, go ahead and create your own design
+using the image below as a guide. Feel free to improvise!
+
+<p align="center">
 <img src="https://user-images.githubusercontent.com/1350095/56684256-48f43600-66c7-11e9-9e9b-648d118fb76f.jpg" alt="smaple list view UI" width="400"/>
 </p>
-
 
 <details>
 <summary><b>If you aren't familiar with React components or how to use them to build a UI,
@@ -37,79 +61,138 @@ click here to read more detailed instructions.
 </b></summary><br>
 
 ### Adding a PetCard component
-To visualise the details of a single pet we create a separate React component. 
-In `src\PetCard.js`, we create a `PetCard` component class, which, in the `render()`
-method, will return a simple set of Bootstrap components that constitute the *identity card* of our furry friend. To do that, you may want to check out the docs of the `Card` component, [here][bst-cards].
-An excerpt of the result may look like this:
 
-```jsx
-<Card style={{ width: '18rem' }}>
-    <Card.Img variant="top" src={"https://source.unsplash.com/collection/212527/200x200/?sig=" + Math.floor(Math.random() * 100)} />
-    <Card.Body>
-        <Card.Title>{props.pet.name}</Card.Title>
-        <Card.Text>{props.pet.description}</Card.Text>
-        <Button variant="primary">Adopt</Button>
-    </Card.Body>
-</Card>
-```
+To visualise the details of a single pet we create a React component to represent the Pet "card".
 
-### Creating a grid layout in the main page
-In the main page of our application - which is `App.js` - let's add some simple layout components.
-To do so, Bootstrap offers several ready-made components that we can combine to create a grid view of 
-all the pets in the shelter. In particular, you can add to the `render()` method components such as 
-`Container`, `Row` and `Col` - see the [grid docs][bst-grid] of react-boostrap for more information.
-    
-### Adding pets to our main page
-Since we cannot yet fetch the list of pets from the backend, to test our layout
-we create some data of fake pets, as follows.
+1. Create a file in the `src\` directory called `PetCard.tsx`.
 
-```jsx
-var mockedPets = [
-    { name: "Berty", description: "Has a good nose for truffles" },
-    { name: "Argo", description: "A superhero (in dogs' world)" },
-    { name: "Fred", description: "Has opinions about sausages" },
-]
-```
+2. You can create a simple React component within this file that might look like this:
 
-Now we can map each of these fake pets' data to a `PetCard` component in the `render()` method
-of our main page.
+   ```tsx
+   import React, { Component } from 'react';
 
-```jsx 
-<Container>
-    <Row>
-    <Col>
-        <CardColumns>
-        {
-            mockedPets.map((pet) => {
-                return (
-                    <PetCard key={pet.id} pet={pet} />
-                );
-            })
-        }
-        </CardColumns>
-    </Col>
-    </Row>
-</Container>
-```
+   class PetCard extends Component {
+     render() {
+         return <div>I'm a pet card!</div>;
+     }
+   }
 
-Congratulations, at this point you should be able to see a list of pets layed out nicely on your main page.
+   export default PetCard;
+   ```
+
+3. Make the `render()` method do something a bit more interesting! For
+   example, instead of returning a `<div>` with some text in, you could use the
+   [`react-bootstrap`] `Card` component to represent one of our furry friends.
+
+   Check out the [documentation for the `Card` component first][bst-cards].
+   Note that you'll need to add imports for the components you use!
+
+   Your result might look like:
+
+    ```tsx
+    return (
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={"https://source.unsplash.com/collection/212527/200x200/?sig=" + Math.floor(Math.random() * 100)} />
+        <Card.Body>
+          <Card.Title>{this.props.pet.name}</Card.Title>
+          <Card.Text>{this.props.pet.description}</Card.Text>
+          <Button variant="primary">Adopt</Button>
+        </Card.Body>
+      </Card>
+    );
+    ```
+
+4. You'll also need to define the properties ("props") passed into the
+   `PetCard` component. Update the start of your PetCard component to include a
+   definition of the expected structure of a Pet, and the properties that will
+   be passed into the component:
+
+   ```tsx
+   ...
+   interface Pet {
+     name: string,
+     description: string,
+   }
+
+   type Props = {
+     pet: Pet
+   };
+
+   class PetCard extends Component<Props> {
+     ...
+   ```
+
+### Create a grid layout in the main page
+
+In the main page of our application (`src\App.tsx`), we'll replace the boilerplate from `create-react-app` with our own grid layout to display multiple pets.
+
+1. First of all, as we are not yet fetching the list of pets from the
+   backend, let's create some data for fake pets so that we can test our
+   layout. In `src\App.tsx`, after the imports but before `const App`, add
+   something like the following:
+
+   ```tsx
+   var mockedPets = [
+     { id: 1, name: "Berty", description: "Has a good nose for truffles" },
+     { id: 2, name: "Argo", description: "A superhero (of the dog world)" },
+     { id: 3, name: "Fred", description: "Has opinions about sausages" },
+   ];
+   ```
+
+2. To create a grid view of the animals in the shelter, we can use some of
+   the components Bootstrap offers such as `Container`, `Row` and `Col`. See
+   [`react-bootstrap`'s grid docs][bst-grid] for more information.
+
+   Here's one way you could choose to lay out the pets. This code replaces
+   the code in the block under `const App: React.FC = () => {`:
+
+   ```tsx
+   return (
+     <Container>
+       <Row>
+       <Col>
+         <CardColumns>
+         {
+           mockedPets.map((pet) => <PetCard key={pet.id} pet={pet} />)
+         }
+         </CardColumns>
+       </Col>
+       </Row>
+     </Container>
+   );
+   ```
+
+   (Don't forget you'll need to add imports for the components you use. VS
+   Code can help with this: try pressing `Ctrl + .` with the cursor on a
+   component with a squiggly underline.)
+
+3. Check your browser. Hopefully at this point you should be able to see a
+   list of pets laid out nicely on your main page.
 </details>
 
-At this point, it might make sense to save the progress you've made to the Git repository.
-You can do this by staging ("adding") the relevant files to the Git index and committing your changes:
+### Commit your changes
 
-    git add -A client/*
+Hooray! You made a user interface for the pet shelter! 🥳 At this point, it
+might make sense to save the progress you've made to the Git repository.
+
+(If you need to, review the [guidance on staging changes and committing in the
+Git cheatsheet](../git-cheatsheet.md#commit).)
+
+For example:
+
+    git add -A .
     git commit
 
-When you are done, you can continue by [connecting your interface up to the animal shelter API](./03-connecting-the-api.md).  
+When you are done, you can continue by [connecting your interface up to the
+animal shelter API](./03-connecting-the-api.md).
 
- [bootstrap]: https://getbootstrap.com/
- [react-bootstrap]: https://react-bootstrap.github.io/
- [material-ui]: https://material-ui.com/
- [office-ui-fabric]: https://developer.microsoft.com/en-us/fabric
- [bst-cards]: https://react-bootstrap.github.io/components/cards/
- [bst-grid]: https://react-bootstrap.github.io/layout/grid/
- [react-components]: https://reactjs.org/docs/components-and-props.html
+[Bootstrap]: https://getbootstrap.com/
+[`react-bootstrap`]: https://react-bootstrap.github.io/
+[Material-UI]: https://material-ui.com/
+[Office UI Fabric]: https://developer.microsoft.com/en-us/fabric
+[bst-cards]: https://react-bootstrap.github.io/components/cards/
+[bst-grid]: https://react-bootstrap.github.io/layout/grid/
+[react-components]: https://reactjs.org/docs/components-and-props.html
 
 ----
 
