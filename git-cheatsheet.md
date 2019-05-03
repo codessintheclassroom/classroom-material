@@ -39,7 +39,8 @@ To commit new changes:
 2. Then, commit your code via `git commit`  
   * You'll be redirected to a text editor to add your commit message.  
   * If you're running it via Terminal within Visual Studio Code, you'll most likely have [Vim](https://www.vim.org/) as your editor.  
-  Type `i` to start editing, and when you're ready, type `Esc`, then `:wq` to save and exit.  
+  Type `i` to start editing, and when you're ready, type `Esc`, then `:wq` to save and exit.   
+  Alternatively, you can [change git default text editor](#change-git-core-text-editor) to something you're more comfortable with.
   * Add a proper description to your commit message. Keep in mind that this message will be kept in the repository history, therefore it needs to be clear and descriptive as to what it's addressing/implementing. Ex: Workshop1 - Adding generated react app.  
 
 ## Push
