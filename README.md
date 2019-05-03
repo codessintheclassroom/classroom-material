@@ -46,7 +46,10 @@ adoption center. In doing this, you'll learn:
 - How to use GitHub to submit a pull request (PR).
 - How to use pull requests as part of a code review process.
 
-_If you're ready, go to the [course notes for Workshop 1](./week1-webclient.md)._
+Please review the list of [prerequisites for this
+workshop](./workshop-prerequisites.md) before you join us on the day.
+
+_If you're ready, go to the [course notes for Workshop 1](./workshop1/00-intro.md)._
 
 ### Workshop 2: APIs and back-end web development
 
@@ -100,5 +103,6 @@ they are._
 
 All of our course notes are open-source, and we invite corrections and
 contributions and corrections from anyone. Find a typo? [Send us a pull
-request](pull/new). Want to contribute a new module? [Open an issue to
-discuss your idea](issues/new).
+request](https://github.com/codessintheclassroom/classroom-material/pull/new).
+Want to contribute a new module? [Open an issue to discuss your
+idea](https://github.com/codessintheclassroom/classroom-material/issues/new).

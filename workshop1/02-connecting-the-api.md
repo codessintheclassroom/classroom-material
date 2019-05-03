@@ -77,8 +77,8 @@ click here to read some code snippets.</b></summary><br>
 ```
 </details>
 
-When you are done, remember to *save* your work with a `git commit` command, as described in the previous steps. 
-After that, you can continue by adding testing logic, as described [here](week1-webclient_unittests.md).  
+When you are done, remember to *save* your work with a `git commit` command, as described in the previous steps.
+After that, you can continue by adding testing logic, as described [here](./03-testing-your-code.md).
 
 
  [api-spec]: https://github.com/codessintheclassroom/api-reference-solution/blob/master/oas3.yaml
