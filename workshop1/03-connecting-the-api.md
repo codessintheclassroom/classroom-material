@@ -4,93 +4,175 @@
 
 ## Step 3: Connect the user interface to the shelter API
 
-In this part of the workshop, we want to connect our frontend application to the backend API in order to retrieve 
-the list of pets available for adoption, and to submit inquiries to adopt them.
-In practice, this boils down to performing HTTP calls 
-to [this API][api-spec] **TODO replace with link to the Swagger editor spec viewer, once final**, 
-which is exposed at: https://codess-shelter.azurewebsites.net/api/v1/.  
+In this part of the workshop, we are going to connect our frontend
+application to a backend API. This will allow us to retrieve the list of
+animals available for adoption.
 
-While there are several HTTP third party libraries that can be used in Javascript (e.g. [Request] or [Axios]),
-for this workshop, we suggest relying on the native Javascript [fetch] API, which is compatible with 
-most browsers in use nowadays.  
+### Context
 
- 1. To get the list of pets available, we implement an HTTP GET call 
-    to `https://codess-shelter.azurewebsites.net/api/v1/pets`, 
-    parse the response and set a state variable in the main page of our pet shelter.
-    We place this call in the `componentDidMount()` method of our `App` component and use the state attribute to store the
-    array of pets data, as [best practice][react-state] for React components.
- 2. To submit an inquiry for adoption, we create a [modal form][react-bst-modal] with few fields 
-    to be filled out by the inquirer,
-    and attach to the `onClick` event of its submit button a function call to the inquiry API.
-    In short, every inquiry submission is an HTTP POST call to `https://codess-shelter.azurewebsites.net/api/v1/inquiries`.
-    The feedback of that call can be visualized as a simple message at the bottom of the
-    modal form using the [conditional rendering][conditional-rend] feature of React.
+Luckily for you, the backend service (the API) already exists! You'll be
+wiring up the code you've already written so that it pulls data from the API
+instead of using the dummy data (`mockedPets`) you created in the previous
+step.
 
-**Note**: if you are using Typescript, you can avail of its type checking when parsing API 
-responses and serializing requests. To do so, you can generate the related interfaces from the
-API specifications using a command line tool or simply from the [Swagger Editor][swagger].
+The API is described by the [API specification], and is hosted at:
+
+    https://codess-shelter.azurewebsites.net/api/v1/
+
+### Making HTTP calls from the frontend application
+
+There are several third party libraries that can be used for making HTTP
+requests in Javascript (e.g. [Request] or [Axios]). For this workshop, we
+suggest relying on the native Javascript [`fetch`] API, which is available in
+most modern browsers.
+
+To get the list of pets available, we need to:
+
+1. Make an HTTP GET request to `https://codess-shelter.azurewebsites.net/api/v1/pets`,
+2. Parse the response,
+3. Use the response as the state for our frontend app.
+
+If you're familiar with [`fetch`] and React, you may wish to try to set this
+up without further hints, but more guidance is available by expanding the
+section below.
 
 <details>
-<summary><b>If you need some help with the HTTP calls and the parsing logic, 
-click here to read some code snippets.</b></summary><br>
+<summary><b>If you'd like further guidance on hooking the frontend up to the API, click here.</b></summary>
 
-### Retrieving the list of pets from the backend
+### Sharing the "Pet" model between components
 
-```javascript
-    fetch(`https://codess-shelter.azurewebsites.net/api/v1/pets`)
-      .then(response => {
-        if (response.status >= 300) {
-          throw new Error(`HTTP Error ${response.statusText}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        // set data to be a state variable
-      });
-```
+We're going to need to have a common understanding of what a "Pet" object
+looks like across different parts of our code. Now is a good time to extract
+the `Pet` interface you created in the previous section into its own module.
 
-### Submitting the inquiry form
+1. Move the `Pet` interface, i.e. this code
 
-```javascript
-   submitInquiry(event: any) {
-        event.preventDefault();
-        var inquiry = // inquiry details from the state
-        fetch(`https://codess-shelter.azurewebsites.net/api/v1/inquiries`, {
-            method: "POST",
-            mode: "cors",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(inquiry)
-        }).then(response => {
-            if (response.status !== 201) {
-                this.setState({ formState: "error" });
-                throw new Error(`HTTP Error ${response.statusText}`);
-            }
-            return response.json();
-        }
-        ).then((data: InquiryV1) => {
-            this.setState({
-                inquiryId: data.id,
-                formState: "success"
-            });
-        })
-    }
-```
+   ```tsx
+   interface Pet {
+       readonly id: string,
+       name: string,
+       description: string,
+   };
+   ```
+
+   into its own file, `src\Pet.tsx`.
+
+2. You will also need to export the interface, so your `src\Pet.tsx` will
+   look something like this:
+
+   ```tsx
+   export default interface Pet {
+       readonly id: string,
+       name: string,
+       description: string,
+   };
+   ```
+
+3. Update your `src\PetCard.tsx` file to import this interface. (Reminder:
+   the lightbulb in VS Code can help with this!)
+
+4. You may also wish to compare this definition of a "Pet" object with what
+   is returned from the API and update it with some additional fields.
+
+### Fetching the list of pets
+
+Now you're going to update `src\App.tsx` so that the list of pets is stored
+as application state, and is fetched when the page first loads.
+
+1. At the beginning of your app component, i.e. under `const App: React.FC =
+   () => {`, declare a state variable to hold an array of pets. The array is
+   empty, for now:
+
+   ```tsx
+   const [pets, setPets] = useState<Array<Pet>>([]);
+   ```
+
+   _The `<Array<Pet>>` syntax is a TypeScript type annotation, and will help
+   you to ensure that your state variable contains the data you expect._
+
+   You'll need to update your imports: `useState` comes from `react` and
+   `Pet` will come from the `Pet.tsx` file you just created:
+
+   ```tsx
+   import React, { useState } from 'react'
+   ...
+   import Pet from './Pet';
+   ```
+
+2. Immediately after our call to `useState`, we're going use a React "hook"
+   called [`useEffect`](https://reactjs.org/docs/hooks-effect.html) to
+   trigger a request to the API when the app first starts up:
+
+   ```tsx
+   useEffect(() => {
+       const updatePets = async () => {
+           const response = await fetch(`https://codess-shelter.azurewebsites.net/api/v1/pets`);
+           const pets = await response.json();
+           setPets(pets);
+       };
+
+       updatePets();
+   }, []);
+   ```
+
+   _The nested function `updatePets` exists because we can't pass an `async` function to `useEffect`. Also, don't omit the second parameter to `useEffect`: it's important!_
+
+3. Update the template returned by your app component to reference the `pets`
+   state variable instead of `mockedPets`.
+
 </details>
 
-When you are done, remember to *save* your work with a `git commit` command, as described in the previous steps.
-After that, you can continue by adding testing logic, as described [here](./04-testing-your-code.md).
+### Commit your changes
 
+Hopefully at this point you have your frontend loading pet data from the pet
+shelter API! 🥳 It's time to commit your progress again!
 
- [api-spec]: https://github.com/codessintheclassroom/api-reference-solution/blob/master/oas3.yaml
- [request]: https://github.com/request/request
- [axios]: https://github.com/axios/axios
- [fetch]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
- [react-state]: https://reactjs.org/docs/state-and-lifecycle.html
- [react-bst-modal]: https://react-bootstrap.github.io/components/modal/
- [conditional-rend]: https://reactjs.org/docs/conditional-rendering.html#inline-if-else-with-conditional-operator
- [swagger]: https://editor.swagger.io/
+(You can review the [guidance on staging changes and committing in the Git
+cheatsheet](../git-cheatsheet.md#commit).)
+
+When you are done, you can continue by [learning how to test your
+code](./04-testing-your-code.md).
+
+### Bonus material: inquiry form
+
+You might have noticed that the API has a [Submit Enquiry API endpoint], for
+sending in requests to adopt these lovely animals.
+
+If you're interested in learning more about React and about talking to APIs
+from frontend code, adding an inquiry form to your app would be a great
+exercise!
+
+<details>
+<summary><b>Click here to see a few suggestions to help you along the way.</b></summary>
+
+- You could reate a [modal form][react-bst-modal] component, with fields to
+  be filled out by the inquirer. (You'll want to check what fields are
+  accepted by the API).
+
+- Wire up the submit button of the modal (the `onClick` event) to make an
+  HTTP POST request to the [Submit Enquiry API endpoint].
+
+- Be aware that you'll need to extract the user data from the form component,
+  so you probably want to treat that data as component state.
+
+- You'll also need to ensure that you're allowing `fetch` to make
+  cross-origin requests, using the `mode: "cors",` option. See [Supplying
+  request options] for details.
+
+- You could use a message at the bottom of the form (using the [conditional
+  rendering] feature of React) to display a message showing the status of
+  form submission.
+
+</details>
+
+[API specification]: https://codessintheclassroom.github.io/api-reference-solution/
+[request]: https://github.com/request/request
+[axios]: https://github.com/axios/axios
+[`fetch`]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+[react-bst-modal]: https://react-bootstrap.github.io/components/modal/
+[conditional rendering]: https://reactjs.org/docs/conditional-rendering.html#inline-if-else-with-conditional-operator
+[Submit Enquiry API endpoint]: https://codessintheclassroom.github.io/api-reference-solution/#/inquiries/inquiries_add_v1
+[Supplying request options]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options
 
 ----
 

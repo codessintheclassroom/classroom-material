@@ -110,6 +110,7 @@ To visualise the details of a single pet we create a React component to represen
    ```tsx
    ...
    interface Pet {
+     readonly id: string,
      name: string,
      description: string,
    }
@@ -133,9 +134,9 @@ In the main page of our application (`src\App.tsx`), we'll replace the boilerpla
 
    ```tsx
    var mockedPets = [
-     { id: 1, name: "Berty", description: "Has a good nose for truffles" },
-     { id: 2, name: "Argo", description: "A superhero (of the dog world)" },
-     { id: 3, name: "Fred", description: "Has opinions about sausages" },
+     { id: "1", name: "Berty", description: "Has a good nose for truffles" },
+     { id: "2", name: "Argo", description: "A superhero (of the dog world)" },
+     { id: "3", name: "Fred", description: "Has opinions about sausages" },
    ];
    ```
 
