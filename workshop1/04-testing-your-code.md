@@ -41,13 +41,21 @@ This set of instructions are using [jest-dom](https://github.com/testing-library
    import { PetCard } from './PetCard';
    ```
 
-5. Add an import statement to import the `Pet` data model we created in the previous step. Again make sure that the path matches the location where the model is located relative to the `Petcard.test.tsx` file.
+5. Btw, to be able to import PetCart, you will need to export it first. Add the export keyword to the PetCard class in the `PetCard.tsx` file to achieve this:
+
+    ```typescript
+    export class PetCard extends Component<Props> {
+    ```
+
+6. Add an import statement to import the `Pet` data model we created in the previous step. Again make sure that the path matches the location where the model is located relative to the `Petcard.test.tsx` file.
 
    ```typescript
    import { Pet } from './Pet';
    ```
 
-6. Create an example pet object. We'll use this to render a `PetCard` for testing.
+7. Create an example pet object. We'll use this to render a `PetCard` for testing.
+
+    **Heads-Up**: The following mock pet has a different schema than the one found in `Pet.tsx`. What do you have to do to make this schema work?
 
    ```typescript
    const petMock: Pet = {
@@ -62,7 +70,7 @@ This set of instructions are using [jest-dom](https://github.com/testing-library
    };
    ```
 
-7. Write a test! We do this with the `describe` and `it` functions:
+8. Write a test! We do this with the `describe` and `it` functions:
 
    ```typescript
    describe('PetCard', () => {
@@ -79,17 +87,17 @@ This set of instructions are using [jest-dom](https://github.com/testing-library
    - The line `const { getByText } = render(<PetCard pet={petMock}/>);` renders the PetCard using the mock data defined in 6 above, and returns a function `getByText` that allows you to check whether certain text values exist in the rendered component.
    - The line `expect(getByText('Fido')).toBeInTheDocument();` defines an expectation that the text `Fido` should be in the rendered component.
 
-8. There are many different ways in which the rendered component and its parts can be checked for validity.
+9. There are many different ways in which the rendered component and its parts can be checked for validity.
 
    - There are many ways in which sub parts of the component can be discovered in addition to `getByText` used above. See the [dom-testing-library cheatsheet](https://testing-library.com/docs/dom-testing-library/cheatsheet#queries) for a list.
    - There are also many ways in which checks can be done on these discovered sub parts in addition to `toBeInTheDocument` used above. There are checks to do anything from whether an attribute exists on a dom element to whether an element is visible or not. See the [jest-dom documentation](https://www.npmjs.com/package/jest-dom#custom-matchers) for more examples.
 
-9. See if you can add additional tests for the following expectations:
+10. See if you can add additional tests for the following expectations:
 
        PetCard should render the given description
        PetCard should render the adopt button
 
-10. See the bottom of this page for an end to end solution containing one possible way to write these.
+11. See the bottom of this page for an end to end solution containing one possible way to write these.
 
 ### Running the tests
 
