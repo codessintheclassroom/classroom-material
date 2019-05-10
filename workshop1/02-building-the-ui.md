@@ -85,7 +85,9 @@ To visualise the details of a single pet we create a React component to represen
    [`react-bootstrap`] `Card` component to represent one of our furry friends.
 
    Check out the [documentation for the `Card` component first][bst-cards].
-   Note that you'll need to add imports for the components you use!
+   Note that you'll need to add imports for the components you use! (VS Code
+   can help with this: try pressing `Ctrl + .` with the cursor on a component
+   with a squiggly underline.)
 
    Your result might look like:
 
@@ -163,9 +165,9 @@ In the main page of our application (`src\App.tsx`), we'll replace the boilerpla
    );
    ```
 
-   (Don't forget you'll need to add imports for the components you use. VS
-   Code can help with this: try pressing `Ctrl + .` with the cursor on a
-   component with a squiggly underline.)
+   (Don't forget: VS Code can help you add imports for the components you
+   use. Press `Ctrl + .` with the cursor on a component with a squiggly
+   underline.)
 
 3. Check your browser. Hopefully at this point you should be able to see a
    list of pets laid out nicely on your main page.
