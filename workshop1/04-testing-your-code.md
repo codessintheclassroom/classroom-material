@@ -38,13 +38,13 @@ This set of instructions are using [jest-dom](https://github.com/testing-library
 4. Add an import statement for the `PetCard` component that we are going to test. Make sure that the path references the location of the `PetCard.tsx` file if your `PetCard.test.tsx` is not in the same folder as `PetCard.tsx`.
 
    ```typescript
-   import { PetCard } from './PetCard';
+   import PetCard from './PetCard';
    ```
 
 5. Add an import statement to import the `Pet` data model we created in the previous step. Again make sure that the path matches the location where the model is located relative to the `Petcard.test.tsx` file.
 
    ```typescript
-   import { Pet } from './Pet';
+   import Pet from './Pet';
    ```
 
 6. Create an example pet object. We'll use this to render a `PetCard` for testing.
@@ -144,9 +144,9 @@ your code reviewed by a peer](./05-submitting-a-pull-request.md).
 
     import * as React from 'react';
 
-    import { PetCard } from './PetCard';
+    import PetCard from './PetCard';
+    import Pet from './Pet';
     import { render } from 'react-testing-library';
-    import { Pet } from './Pet';
 
     const petMock : Pet = {
         "id": "225c5957d7f450baec75a67ede427e9",
