@@ -4,13 +4,36 @@
 
 ## Step 2: Build a user interface for the animal shelter app
 
-In this step, we'll use some popular libraries to help us create a user interface for our app.
+In this step, we'll use some popular libraries to help us create a user
+interface for our app.
 
 ### Context
 
-There are several UI frameworks that we can use to make our life easier.
-These frameworks will help us to create a good-looking UI for our React app
-without needing to write our own stylesheets.
+We're going to build a web frontend in a style that's become known as ["SPA",
+or "single-page
+application."](https://en.wikipedia.org/wiki/Single-page_application)
+
+In a traditional web application, most of the code for rendering the web user
+interface lives in the backend application, although some dynamic behaviours
+are often implemented on the frontend using JavaScript. In a SPA, almost all
+of the application's user interface is defined and implemented in JavaScript,
+and different components are shown at different times by dynamically
+rerendering the current page, rather than by loading new pages from the
+server.
+
+SPAs have advantages and disadvantages. In their favour, they can simplify
+and speed up development, as the user interface is defined in one place
+rather than two. But SPAs can also require special care and attention on the
+part of the developer to ensure fast initial page loads, appropriate
+accessibility, and search engine compatibility.
+
+_If you're interested in learning more about the trade-offs we need to think
+about when choosing to build a SPA, ask one of the mentors!_
+
+Our first step will be to put together a user interface for the animal
+shelter. There are several UI frameworks that we can use to make our life
+easier. These frameworks will help us to create a good-looking UI for our
+React app without needing to write our own stylesheets.
 
 Some examples of these UI frameworks are: [Bootstrap], [Material-UI] or
 [Office UI Fabric].
