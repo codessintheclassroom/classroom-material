@@ -10,10 +10,25 @@ animals available for adoption.
 
 ### Context
 
-Luckily for you, the backend service (the API) already exists! You'll be
-wiring up the code you've already written so that it pulls data from the API
-instead of using the dummy data (`mockedPets`) you created in the previous
-step.
+As discussed in the previous section, a SPA is a single-page application,
+where all of the behaviours of the user interface are defined in the
+frontend. In order to fetch data (like the list of animals available for
+adoption), store data (such as a description of a new animal) and perform
+useful actions (like submitting a request to adopt an animal!) a SPA will
+typically talk to an API (Application Programming Interface).
+
+In the abstract, an API is an interface which defines how two or more
+computer systems can interact. Concretely, an API can be a service which
+accepts requests from clients ("API clients") to retrieve, store, and modify
+data which is exposed through the API.
+
+We're going set up our SPA as a client for a backend service (the API) which
+speaks HTTP, the protocol of the web. The SPA will request data on available
+animals from the API by making HTTP requests to the backend.
+
+Luckily for you, the backend service already exists! You'll be wiring up the
+code you've already written so that it pulls data from the API instead of
+using the dummy data (`mockedPets`) you created in the previous step.
 
 The API is described by the [API specification], and is hosted at:
 
