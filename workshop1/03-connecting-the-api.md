@@ -49,9 +49,9 @@ the `Pet` interface you created in the previous section into its own module.
 
    ```tsx
    interface Pet {
-       readonly id: string,
-       name: string,
-       description: string,
+       readonly id: string;
+       name: string;
+       description: string;
    };
    ```
 
@@ -62,9 +62,9 @@ the `Pet` interface you created in the previous section into its own module.
 
    ```tsx
    export default interface Pet {
-       readonly id: string,
-       name: string,
-       description: string,
+       readonly id: string;
+       name: string;
+       description: string;
    };
    ```
 

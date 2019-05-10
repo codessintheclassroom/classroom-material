@@ -112,13 +112,13 @@ To visualise the details of a single pet we create a React component to represen
    ```tsx
    ...
    interface Pet {
-     readonly id: string,
-     name: string,
-     description: string,
+     readonly id: string;
+     name: string;
+     description: string;
    }
 
    type Props = {
-     pet: Pet
+     pet: Pet;
    };
 
    class PetCard extends Component<Props> {
