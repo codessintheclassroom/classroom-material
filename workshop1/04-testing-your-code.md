@@ -148,7 +148,7 @@ your code reviewed by a peer](./05-submitting-a-pull-request.md).
     import Pet from './Pet';
     import { render } from 'react-testing-library';
 
-    const petMock : Pet = {
+    const petMock = {
         "id": "225c5957d7f450baec75a67ede427e9",
         "name": "Fido",
         "status": "available",
@@ -157,7 +157,7 @@ your code reviewed by a peer](./05-submitting-a-pull-request.md).
         "description": "Fido is a good boy who loves long walks in the park, playing with his ball and licking faces. He's great with children and an absolute sweetheart.",
         "birthday": "2016-04-15",
         "photos": ["https://upload.wikimedia.org/wikipedia/commons/b/b3/Labrador_on_Quantock_%282307909488%29.jpg"]
-    };
+    } as Pet;
 
     describe('PetCard', () => {
         it('should render the given name', () => {
