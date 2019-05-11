@@ -18,6 +18,15 @@ needed for a basic React application with a single command. We are going to
 clone (or "check out") our repository so that we have a local copy of it, and
 then use [`create-react-app`] to generate the initial code for our app.
 
+### Configure Git
+
+If you haven't already, it's a good idea to configure Git with your name and
+email address so your changes will be correctly attributed to you. In
+PowerShell (or your preferred shell), run:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
 ### Cloning your repository
 
 You should have received a slip of paper with the name of your personal
