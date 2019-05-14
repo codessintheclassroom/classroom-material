@@ -76,12 +76,11 @@ the `Pet` interface you created in the previous section into its own module.
    look something like this:
 
    ```tsx
-    interface Pet {
+    export default interface Pet {
         readonly id: string;
         name: string;
         description: string;
     };
-    export default Pet;
    ```
 
 3. Update your `src\PetCard.tsx` file to import this interface. (Reminder:
@@ -136,11 +135,13 @@ as application state, and is fetched when the page first loads.
 3. Update the template returned by your app component to reference the `pets`
    state variable instead of `mockedPets`.
 
-4. Navigate to the node terminal, within Visual Studio Code. You will notice a yellow message saying your code was `Compiled with warnings`. Because we've changes a few things during this step, there are some variables we are not using anymore: `logo` and `mockedPets`.  
-Even though they don't have any effect on the code, it's good practice to keep your code as clean as possible, and it includes making sure you don't have any unused code (which will clutter your project as it accumulates, and don't bring any value).  
-_Always keep a look at this section of your project: ideally we want our projects to be warning-free (even though sometimes that's not possible)._
+4. Go to the node terminal, within Visual Studio Code. You will notice a yellow message saying your code was `Compiled with warnings`. Because we've changed a few things during this step, there are some variables we are not using anymore: `logo` and `mockedPets`.  
 
-5. After removing the unused variables, `node` now should be displaying a green message saying "Compiled succesfully".
+    Even though they don't have any effect on the code, it's good practice to keep your code as clean as possible, and it includes making sure you don't have any unused code (which will clutter your project as it accumulates, and doesn't bring any value).   
+
+    After removing the unused variables, the console now should be displaying a green message saying "Compiled successfully".  
+
+    _Always keep an eye on this section of your project: ideally we want our projects to be warning-free (even though sometimes that's not possible)._
 
 </details>
 
