@@ -1,4 +1,4 @@
-[⏮ Previous step: Testing your code](./04-testing-your-code.md)&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;⏭ ~~Next step~~
+[⏮ Previous step: Testing your code](./04-testing-your-code.md)&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;[⏭ Next step: Further learning](./06-further-learning.md)
 
 ----
 
@@ -245,13 +245,19 @@ As a submitter, you can also help to ensure productive code reviews, by:
 
 ### You made it!
 
-If you made it this far, you're awesome! 😀 You deserve to celebrate and relax.
+If you made it this far, you're awesome! 😀 You deserve to celebrate and
+relax.
 
 Don't forget: if you have any thoughts or suggestions about how any of the
 workshop materials could be improved, please don't hesitate to talk to one of
-the mentors or even [submit a GitHub
-issue](https://github.com/codessintheclassroom/classroom-material/issues).
+the mentors, [submit a GitHub
+issue](https://github.com/codessintheclassroom/classroom-material/issues),
+or, best of all, fill out [our feedback
+form](https://aka.ms/codess/feedback). (It'll take you under two minutes!)
+
+If you're interested in learning more after the workshop is over, check out
+[Step 6: Further learning](./06-further-learning.md).
 
 ----
 
-[⏮ Previous step: Testing your code](./04-testing-your-code.md)&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;⏭ ~~Next step~~
+[⏮ Previous step: Testing your code](./04-testing-your-code.md)&nbsp;|&nbsp;[🏠 Up](./00-index.md)&nbsp;|&nbsp;[⏭ Next step: Further learning](./06-further-learning.md)
