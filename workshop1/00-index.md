@@ -39,3 +39,6 @@ relevant tools and software installed._
 5. [Step 5: Submit a pull request and get your code reviewed.](./05-submitting-a-pull-request.md)
 
 6. You're done. Celebrate! 🥳
+
+If you're interested in learning more after the workshop is over, check out
+[Step 6: Further learning](./06-further-learning.md).
