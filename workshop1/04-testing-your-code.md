@@ -50,7 +50,7 @@ This set of instructions are using [jest-dom](https://github.com/testing-library
 6. Create an example pet object. We'll use this to render a `PetCard` for testing.
 
    ```typescript
-   const petMock: Pet = {
+   const petMock = {
        "id": "225c5957d7f450baec75a67ede427e9",
        "name": "Fido",
        "status": "available",
@@ -59,7 +59,7 @@ This set of instructions are using [jest-dom](https://github.com/testing-library
        "description": "Fido is a good boy who loves long walks in the park, playing with his ball and licking faces. He's great with children and an absolute sweetheart.",
        "birthday": "2016-04-15",
        "photos": ["https://upload.wikimedia.org/wikipedia/commons/b/b3/Labrador_on_Quantock_%282307909488%29.jpg"]
-   };
+   } as Pet;
    ```
 
 7. Write a test! We do this with the `describe` and `it` functions:
