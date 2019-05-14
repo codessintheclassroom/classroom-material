@@ -76,11 +76,12 @@ the `Pet` interface you created in the previous section into its own module.
    look something like this:
 
    ```tsx
-   export default interface Pet {
-       readonly id: string;
-       name: string;
-       description: string;
-   };
+    interface Pet {
+        readonly id: string;
+        name: string;
+        description: string;
+    };
+    export default Pet;
    ```
 
 3. Update your `src\PetCard.tsx` file to import this interface. (Reminder:
@@ -135,6 +136,12 @@ as application state, and is fetched when the page first loads.
 3. Update the template returned by your app component to reference the `pets`
    state variable instead of `mockedPets`.
 
+4. Navigate to the node terminal, within Visual Studio Code. You will notice a yellow message saying your code was `Compiled with warnings`. Because we've changes a few things during this step, there are some variables we are not using anymore: `logo` and `mockedPets`.  
+Even though they don't have any effect on the code, it's good practice to keep your code as clean as possible, and it includes making sure you don't have any unused code (which will clutter your project as it accumulates, and don't bring any value).  
+_Always keep a look at this section of your project: ideally we want our projects to be warning-free (even though sometimes that's not possible)._
+
+5. After removing the unused variables, `node` now should be displaying a green message saying "Compiled succesfully".
+
 </details>
 
 ### Commit your changes
@@ -160,7 +167,7 @@ exercise!
 <details>
 <summary><b>Click here to see a few suggestions to help you along the way.</b></summary>
 
-- You could reate a [modal form][react-bst-modal] component, with fields to
+- You could create a [modal form][react-bst-modal] component, with fields to
   be filled out by the inquirer. (You'll want to check what fields are
   accepted by the API).
 
