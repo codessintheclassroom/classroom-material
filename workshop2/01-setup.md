@@ -6,25 +6,22 @@
 
 In this step, you will be using the repository we've created for you for the [previous workshop](../workshop1), and you'll use [.NET Core CLI] to set up the project for your animal shelter REST API.
 
-### Context
+### Pre-requisites
 
-[React] is a JavaScript library for building interactive user interfaces for
-the web. We're going to use it to build our animal shelter front-end.
+For this workshop we are going to use [Visual Studio Code] with the C# extension and [.NET Core CLI] to create the project and add nuget packages to it.
 
-React provides a tool called [`create-react-app`] which generates the code
-needed for a basic React application with a single command. We are going to
-clone (or "check out") our repository so that we have a local copy of it, and
-then use [`create-react-app`] to generate the initial code for our app.
+You can download and install everything from these links:
+- [Visual Studio Code]
+- [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+- [.NET Core CLI]
 
 ### Cloning your repository
 
-In the previous workshop, you were assigned with a repository where you commited all the UI work. In this workshop, we will continue using that repository to commit the REST API code 
+In the previous workshop, you were assigned with a repository where you commited all the UI work. In this workshop, we will continue using that repository to commit the REST API code.
 
-You should have received a slip of paper with the name of your personal
-repository on it. The name will be something like `happy-rover`, and you'll
-be able to find it within the [CodessInTheClassroom GitHub organisation].
+If you can't remember what was the name of your repo, you can go to your github account and in the repositories look for one with a name something like `happy-rover` within the [CodessInTheClassroom GitHub organisation].
 
-To clone your repository, open up PowerShell (or your preferred shell):
+If you still have the repo cloned locally, you can continue with the next section. If you delete it, you can clone it again. For this open up your preferred shell:
 
 1. Create a local folder to keep your code and change to it. For example, to
    create `C:\CodessInTheClassroom`:
@@ -41,70 +38,29 @@ To clone your repository, open up PowerShell (or your preferred shell):
 
 ### Creating a branch for this workshop work
 
-
-Now we'll create and switch to a branch for this workshop. This
-will allow us to submit a pull request and get our code reviewed later, in
-Step 5:
+Now we'll create a new branch to hold all the new code for the REST API. This will allow to submit a pull request at the end and get your code review.
 
 1. [Follow the instructions for creating a branch in the Git
    cheatsheet](../git-cheatsheet.md#create-a-branch). You should give it a
    descriptive name so that you know what it's for, such as
-   `yourname/shelter-frontend` (on some teams developers prefix their branch
-   names with their usernames) or `shelter-frontend`.
-
-Hooray! You've now bootstrapped your frontend for the animal shelter app.
-Continue to [building the user interface for the shelter
-app](./02-building-the-ui.md).
+   `yourname/shelter-backend` (on some teams developers prefix their branch
+   names with their usernames) or `shelter-backend`.
 
 ### Creating the initial application code
 
-Now we'll use [`create-react-app`] to create the initial code for our
+Now we'll use [.NET Core CLI] to create the initial code for our
 application:
 
-1. Launch Visual Studio Code and use `File → Open Folder` in the menus to
-   open the `frontend` folder within your checked-out repository. For
-   example, if your repository was called `happy-rover`, open the folder
-   `C:\CodessInTheClassroom\happy-rover\frontend`.
-
-2. Open a terminal using `Terminal → New Terminal`.
-
-3. We're going to create a [TypeScript]-based application. TypeScript is a
-   "superset" of JavaScript (so all JavaScript is also valid TypeScript) that
-   will allow us to add type constraints to our application code which make
-   it easier to spot programming errors. If you're interested in learning
-   more about this, you can read more about [TypeScript] or ask one of the
-   mentors!
-
-   In the terminal you started, run the following to create the application:
-
-       npx create-react-app . --typescript
-       npm start
-
-    If you're interested in what `create-react-app` is doing, you can [read
-    its "Getting Started"
-    guide](https://facebook.github.io/create-react-app/docs/getting-started).
-
-4. If it doesn't open automatically, open http://localhost:3000/ in your
-   browser to see the running application. (It doesn't do much yet!)
+1. Using your favourite shell, go to the cloned repo location, for example, if you repository was called `happy-rover`, run `cd c:\CodessInTheClassroom\happy-rover` and run the following command to  generate a web api project `dotnet new webapi -n backend`. This will create a new C# project with some example code for a weather forecast api, that we will override to create our animal shelter API.
+2. Run `code -r c:\CodessInTheClassroom\happy-rover\backend` to open the new created project in Visual Studio Code.
+If you're interested in what other options you can pass when creating a project using `.NET Core CLI` , you can [read more here](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new).
+3. Let's test now the generated web api, hit `Ctrl+F5` in Visual Studio Code, and it will compile and run the project. If there are no errors, in a browser go to the following URL: [https://localhost:5001/WeatherForecast](https://localhost:5001/WeatherForecast), and the server will return a json document with the weather forecat for the next week.
 
 ### Commit the code changes and push to GitHub
 
-So far, we've generated a basic react app, which we will build on to create
-the animal shelter front-end. If you look at your repository folder now,
-you'll see a lot of files that were generated by `create-react-app`. This is
-what we'd call "scaffolding" or "boilerplate" code. It's the foundation on
-which we'll build our application.
+So far, we've generated a very basic web api, that we will use to create our animal shelter backend. The `dotnet new webapi` command has created a few files in the repository folder that will be the base for our application.
 
-We'll commit and push this code to our master branch now for two reasons:
-
-1. This is a checkpoint for us: we have stable code which starts up a basic
-   React app that we can return to if needed.
-2. We will now start customizing this code to our needs, and when we review
-   our customizations later, we want to be able to clearly distinguish which
-   code we wrote and which of it was generated.
-
-To commit and push your changes:
-
+We'll commit and push this code to our development branch to have a start point. To do that:
 1. [Read the guidance on staging changes and committing in the Git cheatsheet](../git-cheatsheet.md#commit).
 
    For example, you could open a new terminal using `Terminal → New Terminal` and run:
@@ -118,14 +74,9 @@ To commit and push your changes:
 
        git push
 
-**N.B.** Normally, we'd push to a branch rather than directly to the `master`
-branch, so that we can easily submit our changes for review in a Pull
-Request. That's what we'll do next.
-
-[React]: https://reactjs.org/
-[`create-react-app`]: https://facebook.github.io/create-react-app/
+[.NET Core CLI]: https://dotnet.microsoft.com/download/dotnet-core/3.1
+[Visual Studio Code]: https://code.visualstudio.com/download
 [CodessInTheClassroom GitHub organisation]: https://github.com/codessintheclassroom
-[TypeScript]: https://www.typescriptlang.org/
 
 ----
 
