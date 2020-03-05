@@ -40,21 +40,17 @@ If you still have the repo cloned locally, you can continue with the next sectio
 
 Now we'll create a new branch to hold all the new code for the REST API. This will allow to submit a pull request at the end and get your code review.
 
-1. [Follow the instructions for creating a branch in the Git
-   cheatsheet](../git-cheatsheet.md#create-a-branch). You should give it a
-   descriptive name so that you know what it's for, such as
-   `yourname/shelter-backend` (on some teams developers prefix their branch
-   names with their usernames) or `shelter-backend`.
+1. [Follow the instructions for creating a branch in the Git cheatsheet](../git-cheatsheet.md#create-a-branch). You should give it a descriptive name so that you know what it's for, such as `shelter-backend` or `yourname/shelter-backend` (in some teams developers prefix their branch names with their usernames).
 
 ### Creating the initial application code
 
 Now we'll use [.NET Core CLI] to create the initial code for our
 application:
 
-1. Using your favourite shell, go to the cloned repo location, for example, if you repository was called `happy-rover`, run `cd c:\CodessInTheClassroom\happy-rover` and run the following command to  generate a web api project `dotnet new webapi -n backend`. This will create a new C# project with some example code for a weather forecast api, that we will override to create our animal shelter API.
-2. Run `code -r c:\CodessInTheClassroom\happy-rover\backend` to open the new created project in Visual Studio Code.
+1. Using your favourite shell, go to the cloned repo location (for example, if your repository was called `happy-rover`, run `cd c:\CodessInTheClassroom\happy-rover`) and run the following command to  generate a web API project: `dotnet new webapi -n backend`. This will create a new C# project with some example code for a weather forecast api, that we will replace to create our animal shelter API.
 If you're interested in what other options you can pass when creating a project using `.NET Core CLI` , you can [read more here](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new).
-3. Let's test now the generated web api, hit `Ctrl+F5` in Visual Studio Code, and it will compile and run the project. If there are no errors, in a browser go to the following URL: [https://localhost:5001/WeatherForecast](https://localhost:5001/WeatherForecast), and the server will return a json document with the weather forecat for the next week.
+2. Run `code -r c:\CodessInTheClassroom\happy-rover\backend` to open the new created project in Visual Studio Code.
+3. Let's test now the generated web API: hit `Ctrl+F5` in Visual Studio Code, and it will compile and run the project. Or you can go back to the shell window, go to your backend project folder and run `dotnet run`. If there are no errors, open the following URL in a browser: [https://localhost:5001/WeatherForecast](https://localhost:5001/WeatherForecast), and the server will return a JSON document with the weather forecast for the next week.
 
 ### Commit the code changes and push to GitHub
 
@@ -63,14 +59,14 @@ So far, we've generated a very basic web api, that we will use to create our ani
 We'll commit and push this code to our development branch to have a start point. To do that:
 1. [Read the guidance on staging changes and committing in the Git cheatsheet](../git-cheatsheet.md#commit).
 
-   For example, you could open a new terminal using `Terminal → New Terminal` and run:
+   For example, you could use your favourite shell, go to your backend project folder and run:
 
        git add .
        git commit
 
 2. [Read the guidance on pushing your changes in the Git cheatsheet](../git-cheatsheet.md#push).
 
-   For example, in a terminal, you could run:
+   For example, in a shell, you could run:
 
        git push
 
